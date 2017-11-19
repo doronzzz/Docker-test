@@ -45,7 +45,7 @@ module.exports = function (app) {
       res.json(items);
     }).catch((error) => {
       res.status(500).end(error.toString());
-      console.log(`failed to create error :  ${error}`);
+      console.log(`failed to findAll error :  ${error}`);
     });
   });
 

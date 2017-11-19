@@ -60,7 +60,8 @@ module.exports = function (app) {
    *          required: true
    *          type: string
    *      responses:
-   *        200:
+   *        201:
+   *
    */
   router.post('/', (req, res) => {
     const schema = {
@@ -102,7 +103,7 @@ module.exports = function (app) {
    *          required: true
    *          type: queryparam - int
    *      responses:
-   *        200:
+   *        201:
    */
   router.post('/:id/likes', (req, res) => {
     const schema = {
@@ -143,7 +144,7 @@ module.exports = function (app) {
    *          required: true
    *          type: queryparam - int
    *      responses:
-   *        200:
+   *        201:
    */
   router.post('/:id/retweet', (req, res) => {
     const schema = {
