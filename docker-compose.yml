@@ -1,0 +1,25 @@
+version: "3"
+services:
+  db:
+    image: postgres:10.1-alpine
+    restart: always
+    ports:
+      - "5432:5432"
+    environment:
+        POSTGRES_PASSWORD: secretpassword
+        POSTGRES_USER: dbuser
+        POSTGRES_DB: mydb
+  node:
+    build: "./node"
+    environment:
+      - NODE_ENV=production
+      - POSTGRES_PASSWORD=secretpassword
+      - POSTGRES_USER=dbuser
+      - POSTGRES_DB=mydb
+      - POSTGRES_HOST=db
+      - TIMEOUT_MILS=2500
+      - APP_PORT=3000
+    depends_on:
+      - db
+    ports:
+      - "3000:3000"
